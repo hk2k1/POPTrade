@@ -1,0 +1,66 @@
+{%extends 'base_general.html'%}
+{%block header%}
+<title>Create Listing</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/userpage.css')}}">
+{%endblock%}
+
+
+{%block content%}
+
+<div class = "create-list">
+        <h1>Creating Listing for User ID:{{user_id}}</h1>
+        <h2>Upload Image Files</h2>
+
+        <form class = "main-edit-list" action="/listing/createListing/" method = "POST" enctype=multipart/form-data>
+
+                <div class = "uploadbox">
+                        <input type="file" accept="image/jpeg, image/png" name="image" id="image" multiple/>
+                        <p>File type supported jpg, png</p>
+                </div>
+
+                <div class = "list-selector">
+                        <label for="sell-type"><p>Sell Type: </p></label>
+                        <select id="sell-type" name="sell-type">
+                                <option value="">Select auction/sell</option>
+                                <option value="market">Sell</option>
+                                <option value="auction">Auction</option>
+                        </select>
+                </div>
+
+                <div class = "list-selector">
+                        <label for="item-name"><p>Item Name: </p></label>
+                        <select id="item-name" name="item-name">
+                                {%for item in itemCatalog%}
+                                <option value="{{item}}">{{item}}</option>
+                                {%endfor%}
+                        </select>
+                </div>
+
+                <div class = "list-input">
+                        <label for="item-description"><p>Item Description:</p></label>
+                        <input type="text" id="item-description" name="item-description" placeholder="Enter item description" class="IDwidth">
+                </div>
+
+                <div class = "list-input">
+                        <label for="price"><p>Price: </p></label>
+                        <input type="number" id="price" name="price" placeholder="Enter price" min="0" class="Pwidth">
+                </div>
+
+                <div class = "list-input">
+                        <label for="quantity"><p>Quantity: </p></label>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter number of items" min="0" class="Pwidth">
+                </div>
+
+                <div class = "list-selector">
+                        <label for="series"><p>Is listing a series? </p></label>
+                        <select id="series" name="series">
+                                <option value="">Select yes/no</option>
+                                <option value="YES">Yes</option>
+                                <option value="NO">No</option>
+                        </select>
+                </div>
+                
+                <input class = "edit-button" type="submit" value="Submit" id="submitbtn" class="submitbtn">
+        </form>
+</div>
+{%endblock%}

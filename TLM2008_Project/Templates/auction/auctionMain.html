@@ -1,0 +1,40 @@
+{%extends 'base_general.html'%}
+{% block header %}
+<title>Auction</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/Marketplace.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock%}
+
+{%block content %}
+<div class = "product-container">
+  
+    <ul class="product-list">
+      {%for item in allItemInfo%}
+      <li class="product">
+        <a href = "{{item['url']}}"><img src="{{ url_for('static', filename=item['front_image_url']) }}" ></a>
+        <h2>{{item['item_name']}}</h2>
+        <p>{{item['item_description']}}</p>
+        <form action="{{item['url']}}" method = "GET">
+          <input class="buynow" type="submit" value="Bid Now"/>
+        </form>
+        <!-- <button class = "buynow" href="{{item['url']}}">Buy now</button> -->
+      </li>
+    {%endfor%}
+    </ul>
+</div>
+
+<!-- <div class = "pagination">
+  <ul>
+    <li class = "btn prev"><span><i class ="fas fa-angle-left"></i> Prev</span></li>
+    <li class = "numb active"><span>1</span></li>
+    <li class = "numb"><span>2</span></li>
+    <li class = "numb"><span>3</span></li>
+    <li class = "dots"><span>...</span></li>
+    <li class = "numb"><span>9</span></li>
+    <li class = "numb"><span>10</span></li>
+    <li class = "btn next"><span>Next <i class ="fas fa-angle-right"></i></span></li>
+  </ul>
+</div> -->
+
+{%endblock%}

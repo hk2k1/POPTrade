@@ -1,0 +1,131 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    background: linear-gradient( to right bottom, rgba(197, 238, 245, 0.5),rgba(245, 188, 188, 0.3));
+    border-radius: 50px;
+    padding: 10px;
+    box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 13px 25px;
+    margin: 5px;
+    font-size: 21px;
+    font-weight: 500;
+    color:#777;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar a{
+    text-decoration: none;
+    color:#777;
+}
+.navbar img{
+    padding: 15px;
+}
+
+.navbar ul li::after{
+    content:"";
+    background: linear-gradient( to right bottom, rgba(167, 211, 224, 0.767),rgba(194, 140, 140, 0.3));
+    box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);
+    width:100%;
+    height:100%;
+    border-radius: 30px;
+    position: absolute;
+    top:100%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity:0;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar ul li:hover{
+    color:#3d3d3d;
+}
+
+.navbar ul li:hover::after{
+    top:50%;
+    opacity:1;
+}
+
+.navbar ul li:hover a{
+    color:#3d3d3d;
+}
+
+
+/*---------- Contact ---------*/
+
+.contact{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.social a{
+    font-size: 27px;
+    margin: 0.5rem;
+}
+
+.social a .bx{
+    padding: 5px;
+    background: #ffffff;
+    color: #000;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    background-color: transparent;
+}
+
+.social a .bx:hover{
+    filter: grayscale(0%);
+}
+
+/* .contact P{
+    text-align: center;
+} */
+
+.links{
+    margin: 1rem 0 1rem;
+}
+
+.links a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.links a:hover{
+    color: #f00;
+}
+
+/* notification */
+.inbox {
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+.inbox .badge {
+    position: absolute;
+    top:-3px;
+    right: -5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: rgb(253, 165, 165);
+    color:#3d3c3c;
+  }
+  

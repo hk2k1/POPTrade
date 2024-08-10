@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <!--image carousel-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <!-- CSS-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <!-- Font family API-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <!-- Font awesome Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .image{
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .6s ease;
+            filter: brightness(75%);
+        }
+        .img-overlay-pos{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+        }
+        .col-4:hover .image{
+            transform: translateY(-5px);
+            opacity: 1;
+            filter: brightness(50%);
+        }
+
+        .img-text{
+            color: white;
+            font-size: 25px;
+            opacity: 1;
+            transform: translate(-60%, -150%);
+            text-align: center;
+            transition: transform 1.25s;
+
+        }
+
+        .img-text::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transform-origin: bottom left;
+            transition: transform 0.75s ease-out;
+        }
+
+        .img-text:hover::after{
+            transform: scaleX(1);
+        }
+
+
+
+    </style>
+    {% block header %}  {% endblock %}
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='/img/POPTRADE LOGO.png') }}" width="320px">
+            </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li> <a href="">Marketplace</a></li>
+                        <li><a href="/auction">Auction</a></li>           
+                        <li> <a href="">Favourites</a></li>
+                        <li><a href="">About Us</a></li>
+                        {% if g.user %}
+                            <li><span>{{ g.user['username'] }}</span>
+                            <li><a href="/auth/logout">Log Out</a>
+                        {% else %}
+                            <li><a href="/auth/register">Register</a>
+                            <li><a href="/auth/login">Log In</a>
+                        {% endif %}      
+                    </ul>
+                </nav>
+                <!--use this method to add new images.-->
+                <img src="{{ url_for('static', filename='/img/cart.png') }} "width="30px" height="30px">
+            </div>
+    {%block content%}
+    
+    {% endblock %}
+</body>
+</html>

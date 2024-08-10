@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/css/chat/chat.css" />
+    <link rel="stylesheet" href="../static/css/chat/chat_user.css" />
+    <link rel="stylesheet" href="../static/css/chat/chat_message.css" />
+    <link rel="stylesheet" href="../static/css/chat/chat_profile.css" />
+    <link rel="stylesheet" href="../static/css/chat/chat_main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site chat" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Import Jquery for animation -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/b7676da964.js" crossorigin="anonymous"></script>
+    <!-- SocketIo to interact front end with backend using Content Delivery Network-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Chat Page</title>
+</head>
+<body>
+    
+    <div id="root">
+        
+    </div>
+    
+    <div class="main-container">
+        <!-- NAV BAR  -->
+        <div class="nav">
+            <div class="nav_blocks">
+                <a href="/">
+                    <img src="../static/img/POPtrade/WHAT_I_USED/Background/homepage_logo_house.png"></img>
+                </a>
+
+                <a href="javascript:history.back()" class="back_btn">
+                    <i class="fa-solid fa-backward fa-xl" style="color: #000000;"></i>
+                </a>
+            </div>
+            <!-- To add more navigation menu items -->
+        </div>
+
+        <!-- CHAT CONNTAINER -->
+        <div class="chat-container">
+            <!-- User To Key In Name | Also can be used as User List -->
+            <div class="user-container">
+                <a href="/auth/message" target="_blank"><button class="btn">
+                    <i class="fa fa-plus"></i>
+                    <span>New Conversation</span>
+                </button></a>
+                
+                <div class="user-header">
+                    <h2>Chats</h2>
+                    <button class="btn-nobg">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                <div class="user-search">
+                    <div class="user-searchwrapper">
+                        <!---------------------- USERNAME -------------------->
+                        <input type="text" class="username" id="username" value={{userInfo['username']}} required/>
+                        <button class="search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- MAYBE PUT PROFILE HERE -->
+                <div class="user-items">
+
+                </div>
+
+            </div>
+
+
+            <!-- User Message Box -->
+            <div class="message-container">
+                <!-- ACTUAL MESSAGES BOX -->
+                <div class="message-content">
+                    
+                    <div class="message-item">
+                        <!-- <div class="message-item-sender" >
+                            <div class="message-msg-sender message_holder">
+                                ----- ADD FLASK SENDER MSG HERE -----
+                            </div>
+                        </div>
+
+                        <div class="message-item-receiver">
+                            <div class="message-msg-receiver" id="message_receiver">
+                                ----- ADD FLASK RECEIVE MSG HERE -----
+                            </div>
+                        </div> -->
+                    </div>
+                    
+                </div>
+
+                <!-- SUPPOSED TO BE THIS CONTENT -->
+                <!-- <div className="content__body">
+                    <div className="chat__items">
+                      {this.state.chat.map((itm, index) => {
+                        return (
+                          <ChatItem
+                            animationDelay={index + 2}
+                            key={itm.key}
+                            user={itm.type ? itm.type : "me"}
+                            msg={itm.msg}
+                            image={itm.image}
+                          />
+                        );
+                      })}
+                      <div ref={this.messagesEndRef} />
+                    </div>
+                  </div> -->
+
+                <div class="message-footer">
+                    <div class="message-new">
+                        <button class="addFiles" type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <!-- FLASK SEND MSG FROM HERE -->
+                        <input type="text" placeholder="Type a message here" class="msg message" id="message" required/>
+                        <button type="submit" class="btnSendMsg" id="sendMsgBtn">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- User Profile Info -->
+            <div class="profile-container">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="{{ url_for('static', filename=userInfo['profileImgUrl']) }}" />
+                    </div>
+                    <h4 class="sender_name">{{userInfo['username']}}</h4>
+                    <!-- <p>Friendly Seller</p> -->
+                </div>
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h4>Information</h4>
+                        <i class="fa fa-angle-down"></i>
+                    </div> 
+                        <p>Contact: {{userInfo['contactNo']}}</p>
+                        <p>Email: {{userInfo['email']}}</p>
+                </div>
+                <div class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing. Excepteur sint et accus permission
+                    Lorem ipsum dolor sit amet, consectetur adipisicing. Excepteur sint et accus permission
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        toggleInfo = (e) => {
+            e.target.parentNode.profile-card.toggle("open");
+        };
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // connect to socket 3000
+            var socket = io('http://localhost:4000');
+            
+            // Send User connected! message once user connected to socket
+            socket.on('connect', function() {
+                socket.send("User connected!");
+            });
+    
+            // Append message into message div 
+            socket.on('message', function(data){
+                // Extract username and message from data
+                var colonIndex = data.indexOf(':');
+                var username = data.substring(0, colonIndex);
+                var message = data.substring(colonIndex + 1);
+                // var scontainer = document.getElementById("profile-content");
+                // var sheading = scontainer.querySelector("h4.sender_name");
+                // var sender_username = sheading.textContent;
+                // Create a new div for the message and append it to the appropriate container
+                if (username === $('#username').val()) {
+                    // Create message-item-sender under message-item
+                    var messageItemSenderDiv = $('<div>').addClass('message-item-sender');
+                    $('.message-item').append(messageItemSenderDiv);
+    
+                    // Create message-msg-sender under message-item-sender
+                    var messageMsgSenderDiv = $('<div>').addClass('message-msg-sender');
+                    messageItemSenderDiv.append(messageMsgSenderDiv); // append to the latest message-item-sender
+    
+                    // Append message into message-msg-sender
+                    messageMsgSenderDiv.append($('<span>').text(username)); // append to the latest message-
+                    messageMsgSenderDiv.append($('<p>').text(message)); // append to the latest message-msg-sender
+    
+                    // messageSenderDiv.attr('id', 'message_holder');
+                    // $('#message_holder').append($('<p>').text(message));
+                    // $('#message-item').append(messageSenderDiv);
+                } else {
+                    var messageItemReceiverDiv = $('<div>').addClass('message-item-receiver');
+                    $('.message-item').append(messageItemReceiverDiv);
+    
+                    // Create message-msg-receiver under message-item-receiver
+                    var messageMsgReceiverDiv = $('<div>').addClass('message-msg-receiver');
+                    messageItemReceiverDiv.append(messageMsgReceiverDiv); // append to the latest message-item-receiver
+    
+                    // Append message into message-msg-receiver
+                    messageMsgReceiverDiv.append($('<span>').text(username)); // append to the latest message-
+                    messageMsgReceiverDiv.append($('<p>').text(message)); // append to the latest message-msg-receiver
+                }
+            });
+    
+            // When Button clicked Use socket send username and message 
+            $('#sendMsgBtn').on('click', function(){
+                socket.send($('#username').val() + ':' + $('#message').val());
+                $('#message').val('');
+            });
+    
+            // When ENTER is pressed Use socket send username and message 
+            $('#message').on('keypress', function(event) {
+                if (event.keyCode === 13) {
+                    $('#sendMsgBtn').click();
+                }
+            });
+        })
+        
+    
+    </script>
+    
+</body>
+</html>
+    

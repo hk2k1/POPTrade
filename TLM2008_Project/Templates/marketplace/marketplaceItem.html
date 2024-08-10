@@ -1,0 +1,99 @@
+{%extends 'base_general.html'%}
+{% block header %}
+<title>Marketplace Item</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/product.css')}}">
+<!-- Font family API-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock%}
+
+
+{% block content %}
+<div class = "top-container">
+  <div class = "pic-nav">
+
+    {%for url in image_urls%}
+    <img class = "nav-img" src="{{ url_for('static', filename=url) }}"onclick="showImage('{{ url_for('static', filename=url) }}')">
+    {%endfor%}
+  </div>
+
+  <div class = "big-img">
+    <img id="large-image" src="{{ url_for('static', filename=image_urls[0]) }}">
+  </div>
+
+  <div class = "prod-info">
+    <h1>{{itemInfo['item_name']}}</h1>
+
+    <div class = "p-like-fav">
+      <!-- <button class = "like-button"><i id="heart" class="fa fa-heart" onclick="toggleHeartColor('{{userFavourteItem}}')"> </i> </button> -->
+      <!-- <hidden onload = "toggleHeartColor('{{userFavouriteItem}}')"></hidden> -->
+      <iframe onload = "toggleHeartColor('{{favouriteStatus}}')" style="display:none;"></iframe>
+      <button class = "like-button"><i id="heart" class="fa fa-heart" onclick="favItem()"> </i> </button>
+    </div>
+
+    <h2>Market Price:$ {{itemInfo['item_starting_price']}}</h2>
+    <!-- <h2>Current Bid: $<span id="item-price">10</span></h2> -->
+
+
+    <!--------- contact seller ---------->
+
+    <div class="user-header" id = "content-head" onclick="toggleCollapse1()">
+      <h3>Contact Sellers</h3>
+    </div>
+    <div class="user-content" id="userContent">
+      {%for seller in userSellingItemList%}
+        <p>{{seller['user_name']}}: <b>${{seller['item_starting_price']}}</b><button onclick="buyItem(this)" class="buy-button" value="{{seller['user_id']}},{{itemInfo['item_name']}}">Buy</button></p><hr>
+      {%endfor%}
+    </div>
+  <!--------- contact seller ---------->
+
+
+    <div class ="user-header" id = "desc-head" onclick = "toggleCollapse2()">
+      <h3>Description</h3>
+    </div>
+    <div class = "item-disc" id = "itemDesc">
+    <p>{{itemInfo['item_description']}}</p>
+    <!-- <p>{{itemInfo['item_full_description']}}</p> -->
+    </div>
+    
+    <div class ="user-header"  id = "terms-head" onclick = "toggleCollapse3()">
+      <h3>Terms and Conditions</h3>
+    </div>
+    <div class = "terms-condi" id = "termsCondi">
+    <p>1) POP MART Singapore will not be liable for any defects on the product or packaging box.</p>
+    <p>2) No refund or exchange will be entertained except in the case of broken or missing parts. 
+      Available in single blind box or a case of 12. 
+      Twelve different designs with the possibility of a secrets (chases) in some of the sets by random.</p>
+    </div>
+  </div>
+</div>
+
+<div class = "bottom-container">
+
+  <h1>YOU MAY ALSO LIKE</h1>
+  <div class = "may-like-list">
+
+    <div class = "arrow-button">
+      <button class="left-arrow" onclick="slideProducts('left')"></button>
+    </div>
+    
+
+    <ul class="products-list">
+      {%for item in randomItemList%}
+        <li class="s-product"><a href = "{{item['item_url']}}"><img src="{{ url_for('static', filename=item['item_front_image']) }}" ></img>
+          <p>{{item['item_name']}}</p></a>
+        </li>
+      {%endfor%}
+      <!-- add more products here -->
+    </ul>
+
+
+    <div class = "arrow-button">
+      <button class="right-arrow" onclick="slideProducts('right')"></button>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/itempage.js') }}"></script>
+</div>
+
+{% endblock%}

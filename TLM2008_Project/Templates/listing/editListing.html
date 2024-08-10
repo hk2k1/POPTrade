@@ -1,0 +1,87 @@
+{%extends 'base_general.html'%}
+{%block header%}
+<title>Edit Listing</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/userpage.css')}}">
+{%endblock%}
+
+
+{%block content%}
+
+
+<div class = "edit-listing">
+    <h1>Editing Listing for User ID:{{user_id}}</h1>
+    <h2>Upload image files</h2>
+
+    <form class = "edit-listing-main" action="{{postUrl}}" method = "POST" enctype=multipart/form-data>
+        
+        <img class = "uploadbox" src="{{ url_for('static', filename=itemInfo['front_image']) }}"> 
+
+        <div class="uploadbox">
+            <p>File type supported jpg, png</p>
+            <input type="file" accept="image/jpeg, image/png" name="image" id="image" multiple/>
+        </div>
+
+        <div class="list-selector">
+            <label for="sell-type"><p>Sell Type:</p></label>
+            <select id="sell-type" name="sell-type">
+                <option value="">Select auction/sell</option>
+
+                {%if itemInfo['catergory'] == 'Auction'%}
+                    <option value="market">Sell</option>
+                    <option value="auction" selected>Auction</option>
+                {%else%}
+    
+                    <option value="market" selected>Sell</option>
+                    <option value="auction">Auction</option>
+                {%endif%}
+            </select>
+        </div>
+            
+
+            <div class ="list-selector">
+                <label for="item-name"><p>Item Name:</p></label>
+                <select id="item-name" name="item-name">
+                    {%for item in itemCatalog%}
+                    {%if item == itemInfo['item_name']%}
+                        <option value="{{item}}" selected>{{item}}</option>
+                    {%else%}
+                        <option value="{{item}}">{{item}}</option>
+                    {%endif%}
+                {%endfor%}
+                </select>
+            </div>
+
+            <div class = "list-input">
+                <label for="item-description"><p>Item Description:</p></label>
+                <input type="text" id="item-description" name="item-description" value="{{itemInfo['item_description']}}">
+            </div>
+
+            <div class= "list-input">
+                <label for="price"><p>Price:</p></label>
+                <input type="number" id="price" name="price" value="{{itemInfo['item_starting_price']}}" min="0">
+            </div>
+
+            
+            <div class = "list-input">
+                <label for="quantity"><p>Quantity: </p></label>
+                <input type="number" id="quantity" name="quantity" value="{{itemInfo['quantity']}}" min="0" class="Pwidth">
+            </div>
+
+            <div class="list-selector">
+                <label for="series"><p>Is listing a series?</p></label>
+                <select id="series" name="series">
+                <option value="">Select yes/no</option>
+                {%if itemInfo['is_series'] == 'YES'%}
+                    <option value="YES" selected>Yes</option>
+                    <option value="NO">No</option>
+                {%else%}
+                    <option value="YES">Yes</option>
+                    <option value="NO" selected>No</option>
+                {%endif%}
+                </select>
+            </div>
+
+            <input class="edit-button" type="submit" value="Submit" id="submitbtn">
+    </form>
+</div>
+{%endblock%}

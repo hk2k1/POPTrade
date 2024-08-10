@@ -1,0 +1,473 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body{
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    background: rgb(247, 202, 201);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgb(253, 220, 220) 0%, rgb(221, 250, 255) 100%);
+  }
+
+.sell-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    height:600px;
+    width:300px;
+    padding:20px;
+    align-items: center;
+    border: black solid 1px;
+    border-radius: 20px;
+    margin-right: 50px;
+    background-color: #3c4680;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.user-info img{
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.user-info h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.user-info p{
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.listing-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width:970px;
+    height:auto;
+    overflow: auto;
+    padding:20px;
+    border: #96adbb solid 2px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #888888;
+    background: rgb(247, 202, 201);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.3));
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 500px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5));
+    box-shadow: 5px 5px 10px #888888
+}
+
+.items h3{
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.items p{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.items img{
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.list-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.edit-button, .delete-button, .sell-button, .message-button{
+    width: 110px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
+.edit-button:hover, .delete-button:hover, .sell-button:hover, .message-button:hover{
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 10px #888888
+}
+
+.edit-button:focus, .delete-button:focus, .sell-button:focus, .message-button:focus{
+    outline: none;
+}
+
+
+.edit-button{
+    background-color: #f1f5d2;
+    border: #d4d8ba solid 1.5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.delete-button{
+    background-color: #EB455F;
+    border: #c23a4e solid 1.5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.sell-button{
+    background-color: #BAD7E9;
+    border: #a0b8c7 solid 1.5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.message-button{
+    background-color: #b9b8f7;
+    border: #c1a1e0 solid 1.5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+/* Edit profile CSS */
+
+.edit-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:35%;
+    margin-right: 50%;
+    margin-top: 5%;
+    margin-bottom: 50px;
+    flex-wrap: nowrap;
+    width: 500px;
+    border: rgb(233, 200, 200) solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.edit-profile h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+    color:#292929;
+}
+
+.profile-pic img{
+    width: 300px;
+    height: 300px;
+    border-radius: 30%;
+    margin-bottom: 20px;
+}
+
+.uploadbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border: #ccb1b1 solid 1.5px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.uploadbox p{
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-style: italic;
+    color:#292929;
+}
+
+.choose-file{
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin-bottom:10px;
+    font-size: 15px;
+}
+
+.input-box p{
+    width: 80px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+
+/* create listing css here */
+.create-list{
+    display: flex;
+    flex-direction: column;
+    border: rgb(214, 233, 236) solid 1px;
+    border-radius: 20px;
+    width:800px;
+    height:auto;
+    margin-right: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px #888888;
+    background: rgb(247, 202, 201);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgb(231, 214, 214) 0%, rgb(204, 225, 228) 100%);
+}
+
+.create-list h1{
+    font-size: 30px;
+    margin-top:20px ;
+    margin-bottom: 20px;
+    color:#292929;
+}
+
+.create-list h2{
+    font-size: 25px;
+    margin-bottom: 10px;
+    color:#292929;
+}
+
+.main-edit-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 500px;
+    margin-bottom: 50px;
+    border: rgb(238, 198, 198) solid 1px;
+    border-radius: 30px;
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient( to right bottom, rgba(197, 238, 245, 0.5),rgba(245, 188, 188, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.list-input, .list-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    width: 400px;
+    height:40px;
+    margin-bottom:10px;
+    font-size: 15px;
+    border: rgb(212, 188, 188) solid 1px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.list-input p, .list-selector p{
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 10px;
+    color:#292929;
+}
+
+select{
+    width: 200px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-right:30px;
+    box-shadow: 5px 5px 10px #888888;
+    border: #96adbb solid 1px;
+}
+
+input{
+    width: 200px;
+    font-size: 15px;
+    margin-right:30px;
+    box-shadow: 5px 5px 10px #888888;
+    border: #96adbb solid 1px;
+}
+
+input:focus{
+    outline: none;
+}
+
+#item-description{
+    width: 200px;
+    font-size: 15px;
+}
+
+option{
+    display: block;
+    width: 100%;
+    padding: 1.5em 2em;
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+select:focus{
+    outline: none;
+}
+
+
+/* Edit Listing CSS */
+
+.edit-listing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25%;
+    margin-left: 21%;
+    margin-top: 5%;
+    margin-bottom: 50px;
+    flex-wrap: nowrap;
+    width: 1000px;
+    border: rgb(233, 200, 200) solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.edit-listing h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+    color:#292929;
+}
+
+.edit-listing h2{
+    font-size: 25px;
+    margin-bottom: 10px;
+    color:#292929;
+}
+
+.edit-listing img{
+    width: 300px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.edit-listing-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 800px;
+    margin-bottom: 50px;
+    border: rgb(238, 198, 198) solid 1px;
+    border-radius: 30px;
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient( to right bottom, rgba(197, 238, 245, 0.5),rgba(245, 188, 188, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+
+/* notification css here */
+
+.notification{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30%;
+    margin-left: 26%;
+    margin-top: 5%;
+    margin-bottom: 50px;
+    flex-wrap: nowrap;
+    width: 700px;
+    height:auto;
+    border: rgb(233, 200, 200) solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.notification h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+    color:#292929;
+}
+
+.message{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    width: 600px;
+    border: rgb(238, 198, 198) solid 1px;
+    border-radius: 30px;
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient( to right bottom, rgba(197, 238, 245, 0.5),rgba(245, 188, 188, 0.3));
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.message p{
+    font-size: 20px;
+    padding: 20px;
+    color:#292929;
+}
+
+.fa-envelope::before{
+    font-size: 25px;
+    color:#6b6b6b;
+    padding: 20px;
+}

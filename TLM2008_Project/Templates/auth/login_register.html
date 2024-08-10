@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-----------login-page------------->
+    <div class="login-wrapper">
+<!--        Shooting Stars-->
+        <section>
+            <div class="shoosta"></div>
+            <div class="shoosta"></div>
+            <div class="shoosta"></div>
+            <div class="shoosta"></div>
+        </section>
+
+
+        <div class="loginpage">
+<!--                Position Elements inside row using Flex-->
+            <div class="row">
+<!--                col-2 placeholder so things work properly -->
+                <div class="col-2">
+
+                </div>
+<!--                Actual col-2 with Login-Register-->
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form id="LoginForm" method = "POST">
+
+                            <input type="text" id="username" name = "username" placeholder="Username" required>
+                            <i class="fa fa-user"></i>
+
+                            <input type="password" id = "password" name = "password" placeholder="Password" required>
+                            <i class="fa fa-lock"></i>
+
+                            <input type = "hidden" name = "state" id = "state" value="login">
+                            <a href="">Forget Password</a>
+
+                            <br>
+                            <button type="submit" class="btn">Login</button>
+
+                        </form>
+
+                        <form id="RegForm" method = "POST">
+                            <input type="text" name = "username" id="username" placeholder="Username" required>
+                            <i class="fa fa-user"></i>
+                            <input type="password" id = "password" name = "password" placeholder="Password" required>
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" id="email" name = "email" placeholder="Email" required>
+                            <i class="fa fa-lock"></i>
+                            <input type = "hidden" name = "state" id = "state" value="register">
+                            <button type="submit" class="btn">Register</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--        Stars Animation-->
+        <div class="stars-wrapper">
+            <div id="stars">
+            </div>
+            <div id="stars2">
+            </div>
+            <div id="stars3">
+
+        </div>
+        </div>
+
+<!--        Slideshow of images -->
+        <div class="slido-wrapper">
+            <img id="slideshow" src="/static/img/POPtrade/WHAT_I_USED/login_slido/login_1.png">
+        </div>
+
+
+
+    <!-- ---------Footer-----------
+    <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>
+                    Download App for Android and ios mobile phone.
+                </p>
+                <div class="app-logo">
+                    <img src="static/img/play-store.png">
+                    <img src="static/img/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="{{ url_for('static', filename='/img/POPTRADELOGO.png') }}" width="320px">
+                <p>
+                    Our Purpose Is To Sustainably Bring The World The Joy Of Having A Pop Mart Toy For Their Collection!
+                </p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2021 POPTrade Marketplace</p>
+    </div>
+</div> -->
+
+<!------------------js for toggle Form--------->
+
+    <script>
+
+    </script>
+    <script src="/static/js/login.js"></script>
+
+</div>
+</body>    
+</html>
+{% endblock %}

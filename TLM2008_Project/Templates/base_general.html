@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <!--image carousel-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <!-- CSS-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/nav_bar.css')}}">
+    <!-- Font family API-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <!-- Font awesome Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% block header %}  {% endblock %}
+</head>
+
+
+<body>
+    <nav class = "navbar" >
+        <a href = "/"><img src="{{ url_for('static', filename='img/POPtrade/WHAT_I_USED/Background/homepage_logo_purple.png' )}}"  width="320px"></a>
+        <ul>
+            <li class="current-page"><a style = "text-decoration: none;" href="/marketplace">Marketplace</a></li>
+            <li class="current-page"><a style = "text-decoration: none;" href="/auction">Auction</a></li>           
+            {% if g.user %}
+                <li class="current-page"> <a  style = "text-decoration: none;" href="/auth/user/listing">Sell</a></li>
+                <li class="current-page"><a onclick="postFunction()" id="userUrl">{{ g.user['username'] }}</a></li>
+                <li class="current-page"><a style = "text-decoration: none;" class = "inbox" href="/notification"><span>Inbox</span><span id="notification-link" class="badge"></span></a></li>
+                <li class="current-page"><a  style = "text-decoration: none;" href="/auth/logout">Log Out</a></li>
+            {% else %}
+                <!-- <li><a href="/auth/register">Register</a> -->
+                <li class="current-page"><a style = "text-decoration: none;" href="/auth/login-register">Log In</a></li>
+            {% endif %}
+            <li class="current-page"><a style = "text-decoration: none;" href="/aboutus">About Us</a></li>      
+        </ul>
+
+    </nav>
+    {%block content%}
+        </div>
+    </div>
+
+    
+    {% endblock %}
+</body>
+<!-------------Footer/Links----------------->
+<!-- <div class="contact" id="contact">
+    <div class="social">
+        <a href="https://www.facebook.com/chew.j.hong"><i class="bx bxl-facebook bx-md bx-border-circle bx-burst-hover"></i></a>
+        <a href="https://instagram.com/pop_trade_?igshid=YmMyMTA2M2Y="><i class="bx bxl-instagram bx-md bx-border-circle bx-fade-up-hover" style="color: #d62976"></i></a>
+        <a href="https://www.tiktok.com/en/"><i class="bx bxl-tiktok bx-md bx-border-circle bx-tada-hover" style="color: #000"></i></a>
+        <a href="https://twitter.com/?lang=en"><i class="bx bxl-twitter bx-md bx-border-circle bx-flashing-hover" style="color: #00acee"></i></a>
+        <a href="https://www.youtube.com/watch?v=ghUx8VntRIA"><i class="bx bxl-youtube bx-md bx-border-circle bx-fade-up-hover" style="color: #f00"></i></a>
+    </div>
+    <div class="links">
+        <a href="https://www.bilibili.com/video/BV1j4411W7F7/?spm_id_from=333.788.recommend_more_video.-1&vd_source=5e6f43acc6a0ed9711cd7ff5ce1a11f8">Privacy Policy</a>
+        <a href="https://www.youtube.com/watch?v=ZXsQAXx_ao0">Terms of Use</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Our Company</a>
+    </div>
+    <p>&#169; POPTRADE All Rights Reserved.</p>
+</div> -->
+<!-------------Footer/Links----------------->
+<div class="contact" id="contact">
+    <div class="social">
+        <a href="https://www.facebook.com/chew.j.hong"><i class="bx bxl-facebook bx-md bx-border-circle bx-tada-hover" style="color: #3b5998"></i></a>
+        <a href="https://instagram.com/pop_trade_?igshid=YmMyMTA2M2Y="><i class="bx bxl-instagram bx-md bx-border-circle bx-tada-hover" style="color: #d62976"></i></a>
+        <a href="https://www.tiktok.com/en/"><i class="bx bxl-tiktok bx-md bx-border-circle bx-tada-hover" style="color: #000"></i></a>
+        <a href="https://twitter.com/?lang=en"><i class="bx bxl-twitter bx-md bx-border-circle bx-tada-hover" style="color: #00acee"></i></a>
+        <a href="https://www.youtube.com/watch?v=ghUx8VntRIA"><i class="bx bxl-youtube bx-md bx-border-circle bx-tada-hover" style="color: #f00"></i></a>
+    </div>
+    <div class="links">
+        <a href="https://www.bilibili.com/video/BV1j4411W7F7/?spm_id_from=333.788.recommend_more_video.-1&vd_source=5e6f43acc6a0ed9711cd7ff5ce1a11f8">Privacy Policy</a>
+        <a href="https://www.youtube.com/watch?v=ZXsQAXx_ao0">Terms of Use</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Our Company</a>
+    </div>
+    <p>&#169; POPTRADE All Rights Reserved.</p>
+</div>
+<!-----------JavaScript------------->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' >
+<script>
+    function postFunction(){
+        var userUrl = document.getElementById("userUrl");
+        userUrl.href = "/auth/user/{{ g.user['id'] }}";
+    }
+</script>
+<script>
+    window.onload = function() {
+        getNotification();
+    }
+    //fetch notification from server everytime base.html refresh or loads then qty of notification on nav bar
+    function getNotification(){
+        fetch("/notification/getNotification",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                "user_id": "{{g.user['id']}}"
+            })
+        })
+        // then(alert(Response.text))
+        .then((response)=>response.text())
+        .then((text)=>{
+            document.getElementById("notification-link").innerHTML = text;
+        })
+    }
+</script>
+
+{%block footer%} {%endblock%}
+</html>

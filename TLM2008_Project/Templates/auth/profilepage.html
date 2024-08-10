@@ -1,0 +1,236 @@
+{% block header %}
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <!-- ===== ===== Custom Css ===== ===== -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/profilepage.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
+
+    <!-- ===== ===== Remix Font Icons Cdn ===== ===== -->
+    <link rel="stylesheet" href="fonts/remixicon.css">
+    <script src="https://kit.fontawesome.com/b7676da964.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- </head> -->
+
+{% endblock%}
+
+{%block content %}
+
+<body>
+    <!-- ===== ===== Body Main-Background ===== ===== -->
+    <span class="main_bg"></span>
+
+
+    <!-- ===== ===== Main-Container ===== ===== -->
+    <div class="container">
+
+        <!-- ===== ===== Header/Navbar ===== ===== -->
+        <header class="navbar-header">
+            <div class="brandLogo">
+                <figure><a href = "/"><img src="{{url_for('static', filename='img/POPtrade/WHAT_I_USED/Background/logo_purple.png')}}" alt="logo" width="40px" height="40px"></figure>
+                <span>POPTRADE</span></a>
+            </div>
+
+            <div class="navbar">
+                <ul class=" ul-list">
+                    <li class="current-page"><a href="/marketplace">Marketplace</a></li>
+                    <li class="current-page"><a href="/auction">Auction</a></li>           
+                    {% if g.user %}
+                        <li class="current-page"> <a href="/auth/user/listing">Sell</a></li>
+                        <li class="current-page"><a onclick="postFunction()" id="userUrl">{{ g.user['username'] }}</a></li>
+                        <li class="current-page"><a class = "inbox" href="/notification"><span>Inbox</span><span id="notification-link" class="badge"></span></a></li>
+                        <li class="current-page"><a href="/auth/logout">Log Out</a></li>
+                    {% else %}
+                        <!-- <li><a href="/auth/register">Register</a> -->
+                        <li class="current-page"><a href="/auth/login-register">Log In</a></li>
+                    {% endif %}
+                    <li class="current-page"><a href="/aboutus">About Us</a></li>      
+                </ul>
+                
+                <!--use this method to add new images.-->
+                <!-- <img src="{{ url_for('static', filename='/img/cart.png') }} "width="30px" height="30px"> -->
+                <i class="bx bx-shopping-bag bx-md" ></i>
+            </div>
+        </header>
+
+
+        <!-- ===== ===== User Main-Profile ===== ===== -->
+        <section class="userProfile card">
+            <div class="profile">
+                <figure><img src="{{ url_for('static', filename=userInfo['profileImgUrl']) }}" alt="User Profile Picture" width="250px" height="250px"></figure>
+            </div>
+        </section>
+
+
+
+        <!-- ===== ===== User Details Sections ===== ===== -->
+        <section class="userDetails card">
+            <div class="userName">
+                <h1 class="name">{{userInfo['username']}}</h1>
+                <div class="map">
+                    <i class="ri-map-pin-fill ri"></i>
+                    <span>SG</span>
+                </div>
+                <!-- <p>Batman</p> -->
+            </div>
+
+            <div class="rank">
+                <h1 class="heading">Ratings</h1>
+                <span>{{userInfo['userRating']}}</span>
+                <div class="rating">
+                    <i class="ri-star-fill rate"></i>
+                    <i class="ri-star-fill rate"></i>
+                    <i class="ri-star-fill rate"></i>
+                    <i class="ri-star-fill rate"></i>
+                    <i class="ri-star-fill rate underrate"></i>
+                </div>
+            </div>
+
+            <div class="btns">
+                <ul>
+                    <li class="sendMsg active">
+                        <i class="ri-chat-4-fill ri"></i>
+                        <a href="/auth/message">Send Message</a>
+                    </li>
+
+                    <li class="sendMsg active">
+                        <i class="ri-check-fill ri"></i>
+                        <a href="#">Contacts:</a>
+                        {{userInfo['email']}}
+                    </li>
+
+                    <li class="sendMsg active">
+                        <a href="#">Report User</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== Timeline & About Sections ===== ===== -->
+        <section class="timeline_about card">
+            <div class="tabs">
+                <ul>
+                    <li class="about active">
+                        <i class="fa-solid fa-rectangle-list">&nbsp;&nbsp;</i>
+                        <span>Favourites</span>
+                    </li>
+                </ul>
+            </div>
+            <div class = "fav-list">
+                <ul class="fav-item">
+                {%for item in userLikes%}
+                    <li>
+                        {%if item['item_catergory']=='market'%}
+                            <a href="{{'/marketplace/marketplaceItem/{}'.format(item['item_id'])}}"><img src= "{{ url_for('static', filename=item['item_image_url']) }}" ></a>
+                        {%else%}
+                            <a href="{{'/auction/auctionItem/{}'.format(item['item_id'])}}"><img src= "{{ url_for('static', filename=item['item_image_url']) }}" ></a>
+                        {%endif%}
+                        <br />
+                        <div class="fav-name">
+                            <h2>{{item['item_name']}}</h2>
+                            <!-- <i id="star" class="fa fa-star fa-lg"> </i> -->
+                        </div>
+                        <div class="fav-desc">
+                            <p>{{item['item_description']}}</p>
+                        </div>
+                        
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+            
+            <!-- <div class="tabs">
+                <ul>
+                    <li class="timeline">
+                        <i class="ri-eye-fill ri"></i>
+                        <span>Timeline</span>
+                    </li>
+
+                    <li class="about active">
+                        <i class="ri-user-3-fill ri"></i>
+                        <span>About</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contact_Info">
+                <h1 class="heading">Contact Information</h1>
+                <ul>
+                    <li class="phone">
+                        <h1 class="label">Phone:</h1>
+                        <span class="info">Lorem Ipsum Lorem Ipsum</span>
+                    </li>
+
+                    <li class="address">
+                        <h1 class="label">Address:</h1>
+                        <span class="info">Lorem Ipsum</span>
+                    </li>
+
+                    <li class="email">
+                        <h1 class="label">E-mail:</h1>
+                        <span class="info">Lorem IpsumLorem Ipsum</span>
+                    </li>
+
+                    <li class="site">
+                        <h1 class="label">Site:</h1>
+                        <span class="info">Lorem Ipsum</span>
+                    </li>
+                </ul>
+            </div> -->
+
+<!--            <div class="basic_info">-->
+<!--                <h1 class="heading">Basic Information</h1>-->
+<!--                <ul>-->
+<!--                    <li class="birthday">-->
+<!--                        <h1 class="label">Birthday:</h1>-->
+<!--                        <span class="info">Lorem Ipsum</span>-->
+<!--                    </li>-->
+
+<!--                    <li class="sex">-->
+<!--                        <h1 class="label">Gender:</h1>-->
+<!--                        <span class="info">Lorem Ipsum</span>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+        </section>
+    </div>
+
+    <script>
+        function postFunction(){
+            var userUrl = document.getElementById("userUrl");
+            userUrl.href = "/auth/user/{{ g.user['id'] }}";
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            getNotification();
+        }
+        //fetch notification from server everytime base.html refresh or loads then qty of notification on nav bar
+        function getNotification(){
+            fetch("/notification/getNotification",{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    "user_id": "{{g.user['id']}}"
+                })
+            })
+            // then(alert(Response.text))
+            .then((response)=>response.text())
+            .then((text)=>{
+                document.getElementById("notification-link").innerHTML = text;
+            })
+        }
+    </script>
+
+</body>
+{% endblock %}

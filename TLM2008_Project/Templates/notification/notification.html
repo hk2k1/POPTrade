@@ -1,0 +1,42 @@
+{%extends 'base_general.html'%}
+{% block header %}
+<title>Notification</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/userpage.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock%}
+
+
+{%block content%}
+
+<div class = "notification">
+
+  <h1>Notifications</h1>
+  {%for notif in notifList%}
+  <div class = "message">
+    <i class = "fa fa-envelope"></i> <p>{{notif['message']}}</p>
+    <form action = "/notification/reply" method = "POST">
+      <input type = "hidden" name = "id" value = "{{notif['notification_id']}}">
+      <input type = "submit" value = "Reply" class = "edit-button">
+    </form>
+  </div>
+  {%endfor%}
+
+</div>
+<!-- <script>
+  function reply(id){
+    alert("Replying to message");
+    fetch('/notification/reply', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'id': id.value
+      })
+    })
+  }
+</script> -->
+
+{%endblock%}

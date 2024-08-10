@@ -1,0 +1,345 @@
+{% extends 'base_homepage.html' %} <!--extends base.html as a boiler plate. References base.html-->
+{% block header %}<!--block encapsulation for header-->
+<title>POP TRADE</title>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--    <meta charset="UTF-8">-->
+<!--    &lt;!&ndash;image carousel&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">-->
+<!--    &lt;!&ndash; CSS&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">-->
+<!--    &lt;!&ndash; Font family API&ndash;&gt;-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"-->
+<!--          rel="stylesheet">-->
+<!--    &lt;!&ndash; Font awesome Bootstrap&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+     {% endblock %}
+<!--</head>-->
+
+
+
+{%block content %}<!--block encapsulation for body-->
+<div id="progress">
+    <span id="progress-value">&#x1F815;</span>
+</div>
+
+        <div class="row">
+<!--            <div class="col-sm">-->
+<!--                <h1>BILL & FRANK</h1>-->
+<!--                <p>The last of us is good!</p>-->
+<!--                <a href="" class="btn">Explore Now &#8594; </a>-->
+<!--            </div>-->
+            <div class="col-lg-">
+                <div id="carouselSlider" class="carousel slide" data-ride="carousel" >
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselSlider" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselSlider" data-slide-to="1"></li>
+                        <li data-target="#carouselSlider" data-slide-to="2"></li>
+                        <li data-target="#carouselSlider" data-slide-to="3"></li>
+                    </ol>
+                    <div id="down"></div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="static/img/POPtrade/WHAT_I_USED/Background/banner_1.png" width="1500px" height="800px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/POPtrade/WHAT_I_USED/Background/banner_2.png" width="1500px" height="800px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/POPtrade/WHAT_I_USED/Background/banner_3.png" width="1500px" height="800px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/POPtrade/WHAT_I_USED/Background/banner_4.png" width="1500px" height="800px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/POPtrade/WHAT_I_USED/Background/banner_5.png" width="1500px" height="800px">
+                        </div>
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselSlider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselSlider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+               </div>
+            </div>
+        </div>
+
+<!-- Unique Collector's Set ---->
+<div class="categories">
+    <div class="small-container">
+        <h2 class="title">Unique Collector's Set</h2>
+        <div class="row">
+            {%for item in itemList%}
+            <div class="collector-col-3">
+                <a href = "{{item['item_url']}}"><img src="{{ url_for('static', filename=item['item_front_image']) }}" alt = "Jurassic"></a>
+
+                <div class = "collector-title">  
+                    <a href = ""><h4>{{item['item_name']}}</h4></a>
+                </div>
+
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<!-- Exclusive featured products ---->
+<div class="small-container">
+    <h2 class="title">Exclusive Featured Products</h2>
+
+    <div class="row">
+        <div class="col-4">
+            <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/MEGA JUST DIMOO Snowman/1.webp') }}"
+                 alt="image_gg" class="image" style="width:100%">
+            <div class="img-overlay-pos">
+                <!--                            CHANGE TEXT HERE-->
+                <div class="img-text">
+                    DIMOO
+                </div>
+            </div>
+            <h4>POPTRADE MEGA JUST DIMOO 1000% SNOWMAN</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+            <p>RRP: $1,200.00</p>
+        </div>
+        <div class="col-4">
+            <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/Molly Imaginary Wandering/1.webp') }}"
+                 alt="image_gg" class="image" style="width:100%">
+            <div class="img-overlay-pos">
+                <!--                            CHANGE TEXT HERE-->
+                <div class="img-text">
+                    MOLLY
+                </div>
+            </div>
+            <h4>POPTRADE Molly Imaginary Wandering </h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RRP: $150.00</p>
+        </div>
+        <div class="col-4">
+            <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/Monsters Fruits Series/3.webp') }}"
+                 alt="image_gg" class="image" style="width:100%">
+            <div class="img-overlay-pos">
+                <!--                            CHANGE TEXT HERE-->
+                <div class="img-text">
+                    Monsters
+                </div>
+            </div>
+            <h4>POPTRADE The Monsters Fruits Series</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RRP: $79.90</p>
+        </div>
+        <div class="col-4">
+            <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/Space Adventures Series/3.webp') }}"
+                 alt="image_gg" class="image" style="width:100%">
+            <div class="img-overlay-pos">
+                <!--                            CHANGE TEXT HERE-->
+                <div class="img-text">
+                    Space
+                </div>
+            </div>
+            <h4>POPTRADE The Monsters Space Series</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <p>RRP: $800.00</p>
+        </div>
+    </div>
+
+    <h2 class="title">Latest Products</h2>
+    <div class="row">
+    {%for item in itemList2%}
+        <div class="col-4">
+            <a href = "{{item['item_url']}}"><img src="{{ url_for('static', filename=item['item_front_image']) }}"></a>
+            <h4>{{item['item_name']}}</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RPR: ${{item['item_starting_price']}}</p>
+        </div>
+    {%endfor%}
+
+    </div>
+</div>
+
+<!-----------Offer------------->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2" style="    bottom: 275px; right: 156px;">
+                <img id="img-js" src="/static/img/POPtrade/WHAT_I_USED/ZodiacSeries/main.webp">
+                <div id="slider-bar"></div>
+            </div>
+            <div class="col-2">
+                <div class="description">
+                    <p>Exclusively Available on POPTrade Only!</p>
+                    <h1>Zodiac Series</h1>
+                    <small>
+                        Dimoo Zodiac Series has arrived! Which zodiac sign are you? 😱🤩 Time to have loads of fun
+                        finding out which zodiac baby you'll get! Who knows, you might get your zodiac sign on your
+                        first try! 😍✨
+                    </small>
+                    <br>
+                    <a href="https://popmart.sg/products/pop-mart-dimoo-zodiac-series?_pos=1&_sid=02bde44ea&_ss=r"
+                       class="btn">Buy Now</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------Testimonial-------->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>I was blown away by the selection and quality of products on this e-commerce site. I found everything
+                    I was looking for, and the checkout process was a breeze. I'll give them a 10/10 rating! I'll
+                    definitely be a returning customer! </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/photo_2023-02-14_12-59-19.jpg') }}">
+                <h3>Chew Jing Hong</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>I recently purchased a product from this e-commerce site and was very impressed with the excellent
+                    customer service. The product arrived in perfect condition. They went above and beyond to make sure
+                    I had all the information. I'll definitely be shopping here again!</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/photo_2023-02-14_13-00-28.jpg') }} ">
+                <h3>Gary Tey</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>I was hesitant to order from an e-commerce site that I hadn't heard of before, but I'm so glad I did.
+                    The website was easy to navigate, and the prices were unbeatable. My order arrived quickly, and I've
+                    already recommended this site to all my friends! </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="{{ url_for('static', filename='/img/POPtrade/WHAT_I_USED/photo_2023-02-14_13-00-32.jpg') }} ">
+                <h3>Cai Shuai Ge</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{%block footer%}
+<!-----------Brands------------->
+<!-- <div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-4 brands-logo">
+                <img src="static/img/download (1).png" width="90px" height="90px">
+            </div>
+            <div class="col-4 brands-logo">
+                <img src="static/img/download (2).png" width="180px" height="90px">
+            </div>
+            <div class="col-4 brands-logo">
+                <img src="static/img/image_2023-02-14_14-33-15.png" width="90px" height="90px">
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+<!-----------Footer------------->
+<!-- <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>
+                    Download App for Android and ios mobile phone.
+                </p>
+                <div class="app-logo">
+                    <img src="static/img/play-store.png">
+                    <img src="static/img/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="{{ url_for('static', filename='/img/POPTRADELOGO.png') }}" width="320px">
+                <p>
+                    Our Purpose Is To Sustainably Bring The World The Joy Of Having A Pop Mart Toy For Their Collection!
+                </p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2021 POPTrade Marketplace</p>
+    </div>
+</div> -->
+
+<!-----------JavaScript------------->
+
+<script src="/static/js/slider.js"></script>
+<script src="/static/js/scrollbutton.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+{% endblock%}

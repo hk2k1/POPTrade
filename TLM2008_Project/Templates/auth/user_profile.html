@@ -1,0 +1,13 @@
+{%extends 'base_general.html'%}
+{%block content%}
+<h1>{{userInfo['username']}}</h1>
+<h1>{{userInfo['user_id']}}</h1>
+<h1>Your listing: {{userInfo['userTotalListing']}}</h1>
+<h1>Your email: {{userInfo['email']}}</h1>
+<h1>Your phone number: {{userInfo['contactNo']}}</h1>
+<a href="/auth/edit" method = "GET"><button >Edit Profile</button></a>
+<form action="/listing/createListing" method = "GET">
+    <input id="sell-button" type="submit" value="Sell"/>
+</form>
+{%endblock%}
+

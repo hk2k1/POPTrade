@@ -1,0 +1,74 @@
+{%extends 'base_general.html'%}
+{% block header %}
+<title>Your Page</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/userpage.css')}}">
+{% endblock%}
+
+{%block content %}
+
+
+
+<div class="sell-page">
+    <div class="user-info">
+        <!--will display user's profile image dynamically here later-->
+        <img src="{{ url_for('static', filename=userInfo['profileImgUrl']) }}" alt="User Profile Picture">
+        <h1>{{userInfo['username']}}</h1>
+        <p>Click to upload your items to start selling!</p>
+        <div class = "buttons">
+            <a href="/listing/createListing"><button class="sell-button">Sell</button></a>
+            <a href="/auth/edit"><button class = "edit-button">Edit Profile</button></a>
+            <a href="/auth/message"><button class = "message-button">Message</button></a>
+        </div>
+
+    </div>
+    
+        <div class="listing-items">
+            {%for listing in userListing%}
+                {%if listing['item_catergory']=='market'%}
+                    <div class="items">
+                        <a href="{{listing['item_url']}}"><img src="{{ url_for('static', filename=listing['item_front_image']) }}"></a>
+                        <h3>{{listing['item_name']}}</h3>
+                        <p>Price:$ {{listing['item_starting_price']}}</p>
+                        <p>Quantity: {{listing['quantity']}}</p>
+
+                        <div class = "list-buttons">
+                                <form action = "{{listing['item_edit_url']}}" method = "GET">
+                                    <a onclick="this.parentNode.submit();" ><button class = "edit-button">Edit</button></a>
+                                </form>
+    
+                                <!-- <a href="{{listing['item_edit_url']}}"><button>Edit</button></a> -->
+                                <form action = "{{listing['item_delete_url']}}" method = "POST">
+                                    <a onclick="this.parentNode.submit();"><button class = "delete-button">Delete</button></a>
+                                </form>
+                                <!-- <a href="{{listing['item_delete_url']}}"><button>Delete</button></a> -->
+                        </div>
+
+
+                    </div>
+                {%elif listing['item_catergory']=='auction'%}
+                    <div class="items">
+                        <a href="{{ url_for('static', filename=listing['item_front_image']) }}"><img src="{{ url_for('static', filename=listing['item_front_image']) }}"></a>
+                        <h3>{{listing['item_name']}}</h3>
+                        <p>Price:$ {{listing['item_starting_price']}}</p>
+                        <p>Current Bid:$ {{listing['item_current_price']}}</p>
+
+                        <div class = "list-buttons">
+                                <form action = "{{listing['item_edit_url']}}" method = "GET">
+                                    <a onclick="this.parentNode.submit();" ><button class="edit-button">Edit</button></a>
+                                </form>
+    
+                                <!-- <a href="{{listing['item_edit_url']}}"><button>Edit</button></a> -->
+                                <form action = "{{listing['item_delete_url']}}" method = "POST">
+                                    <a onclick="this.parentNode.submit();"><button class="delete-button">Delete</button></a>
+                                </form>
+                                <!-- <a href="{{listing['item_delete_url']}}"><button>Delete</button></a> -->
+                        </div>
+                    </div>
+                {%endif%}
+            {%endfor%}
+    
+        </div>
+
+    </div>
+
+{% endblock%}

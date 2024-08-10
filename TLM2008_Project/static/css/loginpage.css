@@ -1,0 +1,293 @@
+/*
+    General Webpage Elements
+    DO NOT CHANGE Z-INDEX VALUES
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+a:hover{
+    text-decoration: none;
+}
+
+/* Container Flex to middle */
+.row{
+    display:flex;
+    align-items:center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
+}
+
+/* Col 2 contains login-register */
+.col-2{
+    flex-basis: 50%;
+    min-width: 20%;
+    position: relative;
+}
+
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+/*-------------loginpage------------*/
+/*
+.loginpage{
+    padding: 50px 0;
+    height: 1034px;
+    width: 100%;
+    background-attachment: fixed;
+    background-image:url("../img/POPtrade/WHAT_I_USED/Background/background_login.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+*/
+
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Login - Register Form Containers */
+.form-container{
+    background: #b4aac51f;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    margin: auto;
+    box-shadow: inset 0 0 600px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+    top: 100px;
+    border-radius: 10px;
+    z-index: auto;
+}
+
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #EFEFEF;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+
+.form-btn{
+    display: inline-block;
+}
+.form-container form{
+    max-width: 300px;
+    padding: 0 20px;
+    position: absolute;
+    top: 130px;
+    transition: transform 1s;
+}
+
+/* Username Pwd Email with Icon elements */
+#LoginForm{
+    left: -300px;
+}
+
+
+.fa-user {
+    position: absolute; top: 13px; left: 30px;
+}
+
+.fa-lock {
+    position: absolute; top: 54px; left: 30px;
+}
+.fa-envelope {
+    position: absolute; top: 94px; left: 27px;
+}
+#RegForm{
+    left: 0;
+}
+form a{
+    font-size: 12px;
+
+}
+
+#Indicator{
+    width: 100px;
+    border: none;
+    background: #30446e;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(100px);
+    transition: transform 1s;
+}
+
+/* Login-Register Buttons with hover effect */
+.btn{
+    display: inline-block;
+    background: #30446e;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #243352;
+}
+button, input, optgroup, select, textarea{
+    margin: 7px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input:focus{
+    outline: none;
+}
+
+/* TextBoxes Redesign
+
+#username{
+    background-color: #dddddd;
+    color: #666666;
+    border-radius: 10px;
+    padding: 1px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.2s;
+}
+
+#username: hover{
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+#username: focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+*/
+
+
+/* Rewriting loginpage for stars*/
+
+.loginpage{
+    padding: 50px 0;
+    height: 1069px;
+    width: 100%;
+    background-attachment: fixed;
+    background: url("../img/POPtrade/WHAT_I_USED/Background/background_login.png") no-repeat fixed center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+}
+
+
+.login-wrapper{
+    height: 1050px;
+    width: 107%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    z-index: -2;
+}
+
+/* Slideshow of Images | Fading Animation js */
+
+#slideshow {
+  position: relative;
+  transition: opacity 2s ease, transform 2s ease;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#slideshow.fade-out {
+  opacity: 0;
+  transform: translateY(-10%);
+}
+
+.slido-wrapper{
+    position: absolute;
+    z-index: auto;
+    top: 480px;
+    left: 605px;
+    right: 100px;
+}
+
+
+/* HOMEBAR NAVIGATION */
+
+.hero {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+}
+
+.homepage_nav{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
+
+}
+
+.homepage_nav .logo{
+    width: 80px;
+}
+.ul-list li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.ul-list a{
+    transition: 0.4s;
+    color: #c3c1c1;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0);
+    border-radius: 50px;
+}
+
+.ul-list a:hover{
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 3.6);
+    backdrop-filter: blur(20px);
+    padding: 24px 10px;
+    color: white;
+}
+
+

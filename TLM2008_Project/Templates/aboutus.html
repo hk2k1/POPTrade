@@ -1,0 +1,98 @@
+{%extends 'base_general.html'%}
+{% block header %}
+<title>About us</title>
+<link rel="stylesheet" type = "text/css" href="../static/css/aboutus.css">
+<meta charset="UTF-8">
+<!--image carousel-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<!-- Font family API-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+<!-- Font awesome Bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock%}
+
+
+{% block content %}
+<body>
+
+  <section class = "groupphoto">
+    <img src = "../static/img/POPtrade/WHAT_I_USED/groupphoto.jpg" alt = "groupphoto" id = "groupphoto">
+    <h2 id = "text">About Us</h2>
+    <img src = "../static/img/POPtrade/WHAT_I_USED/Wallpaper/chara-left.png" alt = "chara-left" id = "chara-left">
+    <img src = "../static/img/POPtrade/WHAT_I_USED/Wallpaper/top-dimoo.png" alt = "chara-top" id = "chara-top">
+  </section>
+
+  <div class = "sec">
+    <h2>About POP Trade</h2>
+    <h3 id="who-left" >Who are we?</h3>
+    <p id = "who1-left" >We are a group of SIT students who have come together to create a platform that serves as a one-stop-shop 
+        for all your Popmart needs. Our team is composed of dedicated individuals from diverse backgrounds, each 
+        bringing their unique perspectives and skill sets to the table. We understand that getting repeated figurines 
+        is quite frustrating therefore we are here to help. Our goal is to provide all popmart buyers with a fair and safe 
+        platform to trade/sell their repeated collectables.</p>
+
+    <h3 id = "what-right">What is POPTRADE?</h3>
+    <p id = "what1-right">POPTRADE is a safe and secure platform for clients to sell or trade their figurines. All members that are trading 
+        and selling will also be verified when creating an account with us. We also provide a fair dispute resolution where 
+        poptrade will have the last say. All terms and conditions are also clear and transparent for user to view.</p>
+
+    <h3 id = "how-left">How does trading work?</h3>
+    <p id = "how1-left">If clients wants to trade their unwanted figurines, they will post it on the trading page where all figurines that is put 
+        up on trade is. When finding the figurine that you are looking for, click into the post and it will show the details of the client 
+        and after which you can contact them by yourself.</p>
+
+    <h3 id = "how-right">How does auction work?</h3>
+    <p id = "how1-right">If there is a rare figurine that someone have acquired but wants to sell it, it can be put to auction where everyone have a chance to 
+        bid for it. The highest bidder at the end of the timeline will be the one buying the rare figurine from the seller.</p>
+  </div>
+
+  <div class = "abtcont">
+    <h1>Message From Our Team</h1>
+    <div class = "card-left">
+      <img class = "dvlpimg-left" src = "../static/img/POPtrade/WHAT_I_USED/developer1.png" alt = "developer-1" >
+      <div class = "content-left">
+        <h2>Web Developer</h2>
+        <p>" Welcome! In POPTRADE we want to ensure all user have a safe and secure transaction when trading/auctioning their repeated figurines. "</p>
+      </div>
+    </div>
+
+    <div class = "card-right">
+      <img class = "dvlpimg-right" src = "../static/img/POPtrade/WHAT_I_USED/developer2.png" alt = "developer-2" >
+      <div class = "content-right">
+        <h2>Web Designer</h2>
+        <p>" Welcome to POPTRADE, with over 6 weeks of experience in HTML,CSS,PHP this is the best we can do to provide you a clear and beautiful webpage for our IP project! "</p>
+        </div>
+    </div>
+
+    <div class = "card-left">
+      <img class = "dvlpimg-right" src = "../static/img/POPtrade/WHAT_I_USED/developer6.png" alt = "developer-3" >
+      <div class = "content-left">
+        <h2>Content Creator</h2>
+        <p>" Who else have gotten a repeated figurine when buying a blind box?<br> In POPTRADE we can finally get rid of our repeated blind box figurine. "</p>
+        </div>
+    </div>
+
+    <div class = "card-right">
+      <img class = "dvlpimg-right" src = "../static/img/POPtrade/WHAT_I_USED/developer3.png" alt = "developer-4" >
+      <div class = "content-right">
+        <h2>QA Tester</h2>
+        <p>" Hello! My team would like to thank you for being a part of the community.<br> If you have any feedback please feel free to contact us! "</p>
+        </div>
+    </div>
+
+    
+    <div class = "card-left">
+      <img class = "dvlpimg-left" src = "../static/img/POPtrade/WHAT_I_USED/developer9.png" alt = "developer-5" >
+      <div class = "content-left">
+        <h2>UX Designer</h2>
+        <p>" Hi there! Our team have finally launch our website that offers trading and <br>auction for your figurines! We hope you enjoy your time here! "</p>
+        </div>
+    </div>
+
+  </div>
+  
+  <script src = "../static/js/aboutus.js"></script>
+</body>
+
+{% endblock%}

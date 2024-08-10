@@ -1,0 +1,16 @@
+item_id,item_name,item_description,item_starting_price,item_current_price,item_end_date,item_image_url,item_catergory,series,user_id,item_full_description
+2,Dimoo,This is item 1,100,100,2020-12-31 23:59:59,img/POPtrade/WHAT_I_USED/Dimoo/1.webp,auction,YES,2,NULL
+3,molly,This is item 1,100,100,2020-12-31 23:59:59,img/POPtrade/WHAT_I_USED/molly/1.webp,auction,YES,2,NULL
+4,MonstersFruits,Monsters Fruits Series,50,10000,2020-12-31 23:59:59,img/POPtrade/WHAT_I_USED/MonstersFruits/1.webp,auction,NO,1,NULL
+5,SpaceAdventures,Space Adventures Series,50,10000,2020-12-31 23:59:59,img/POPtrade/WHAT_I_USED/SpaceAdventures/1.webp,auction,NO,1,NULL
+6,Han Chinese Costume,han series,2199,10120,2023-12-31 23:59:59,img/POPtrade/WHAT_I_USED/Han Chinese Costume/1.webp,auction,NO,1,NULL
+7,Pucky x Sanrio Characters Series,Pucky X Sanrio series,40,NULL,NULL,img/POPtrade/WHAT_I_USED/Pucky x Sanrio Characters Series/14.webp,market,NO,5,"When you combine @puckytoys and @sanrio, you get ultimate cuteness! Watch out, 𝗣𝘂𝗰𝗸𝘆 𝘅 𝗦𝗮𝗻𝗿𝗶𝗼 𝗦𝗲𝗿𝗶𝗲𝘀 will be taking over your collection."
+8,Pucky Rabbit Cafe Series,It’s love at first sip.,69,NULL,NULL,img/POPtrade/WHAT_I_USED/Pucky Rabbit Cafe Series/13.webp,market,YES,5,Come try out sweet pastries and aromatic coffee over at 𝗣𝗨𝗖𝗞𝗬 𝗥𝗮𝗯𝗯𝗶𝘁 𝗖𝗮𝗳𝗲 𝗦𝗲𝗿𝗶𝗲𝘀. PUCKY will make sure you’ll have a great time over at her café~
+9,Dimoo Dating Series,Dating season is coming,30,NULL,NULL,img/POPtrade/WHAT_I_USED/Dimoo Dating Series/12.webp,market,NO,6,NULL
+10,Han Chinese Costume,POP MART Disney Princess,78,NULL,NULL,img/POPtrade/WHAT_I_USED/Han Chinese Costume/15.webp,market,NO,6,NULL
+11,Disney Mickey and Friends,The Ancient Times Series,78,NULL,NULL,img/POPtrade/WHAT_I_USED/Disney Mickey and Friends/14.webp,market,NO,8,Take a trip down memory lane with 𝗗𝗶𝘀𝗻𝗲𝘆 𝗠𝗶𝗰𝗸𝗲𝘆 𝗮𝗻𝗱 𝗙𝗿𝗶𝗲𝗻𝗱𝘀 𝗧𝗵𝗲 𝗔𝗻𝗰𝗶𝗲𝗻𝘁 𝗧𝗶𝗺𝗲𝘀 𝗦𝗲𝗿𝗶𝗲𝘀. This retro series is a throwback to simpler times with our favorite Disney cuties.
+12,Duckyo,Duckyo Friends,30,NULL,NULL,img/POPtrade/WHAT_I_USED/Duckyo/14.webp,market,NO,8,"Looks like Duckyo is not the only one hustlin’ hard.
+Just like all of us, 𝗗𝘂𝗰𝗸𝘆𝗼 𝗙𝗿𝗶𝗲𝗻𝗱𝘀 𝗪𝗮𝗴𝗲 𝗘𝗮𝗿𝗻𝗲𝗿 𝗦𝗲𝗿𝗶𝗲𝘀 goes through different phases in adulting! "
+13,The Monsters Kaiju Series,Your favourite monsters are back,40,NULL,NULL,img/POPtrade/WHAT_I_USED/The Monsters Kaiju Series/10.webp,market,YES,9,"Presenting you 𝗧𝗵𝗲 𝗠𝗼𝗻𝘀𝘁𝗲𝗿 𝗞𝗔𝗜𝗝𝗨 𝗦𝗲𝗿𝗶𝗲𝘀 - where you get to meet all kinds of kaiju, also known as giant monsters in Japanese! Which one is your favourite? Meet The Monsters in stores now~"
+14,Skullpanda Warmth Series,Skullpanda has returned,90,NULL,NULL,img/POPtrade/WHAT_I_USED/Skullpanda Warmth Series/13.webp,market,YES,10,"Introducing the newest 𝗦𝗸𝘂𝗹𝗹𝗽𝗮𝗻𝗱𝗮 𝗪𝗮𝗿𝗺𝘁𝗵 𝗦𝗲𝗿𝗶𝗲𝘀 where she’s seen in a lighter, calmer and brighter shade!"
+15,Skullpanda Night City,Bringing their heat to 2022! 🔥,90,NULL,NULL,img/POPtrade/WHAT_I_USED/Skullpanda Night City/8.webp,market,YES,10,"In the city of night, everything is lit up by neon lights. Skullpanda is playing her part and keeping the night moving in the coolest way! 😎"
