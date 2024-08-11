@@ -11,9 +11,12 @@ PopTrade is a web-based consumer marketplace that facilitates seamless buying an
 ## Features
 
 - User account management
+  ![Product Listing Picture](public/Picture2_Poptrade.png)
 - Product listing and search functionalities
+  ![Product Listing Picture](public/Picture3_Poptrade.png)
 - Real-time chat for users
 - Secure login system
+  ![Product Listing Picture](public/Picture1_Poptrade.png)
 
 ## Getting Started
 
